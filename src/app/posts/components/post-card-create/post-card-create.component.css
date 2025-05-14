@@ -1,0 +1,91 @@
+mat-form-field {
+  width: 100%;
+  gap: 16px;
+}
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dialog-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #3f51b5;  /* Cambia el color del título */
+}
+
+.close-btn {
+  background-color: transparent;
+  color: #f44336; /* Color del botón cerrar */
+}
+
+.custom-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #3f51b5; /* Color del borde al hacer foco */
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  position: relative;
+}
+
+.mat-error {
+  color: #f44336;
+  font-size: 0.85rem;
+  position: absolute;
+  bottom: -18px;
+}
+
+.tags {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.tag {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: #303f9f;
+}
+
+.form-content {
+  padding: 15px 0;
+}
+
+@media (max-width: 600px) {
+  .dialog-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .custom-input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .tag {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}

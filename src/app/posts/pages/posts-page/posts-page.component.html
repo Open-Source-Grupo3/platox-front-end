@@ -1,0 +1,8 @@
+<div class="container" >
+  <button mat-button class="button-create" (click)="openCreatePostDialog()" >New Post</button>
+  <div class="items-section">
+    <ng-container *ngIf="dataSource">
+      <app-post-card *ngFor="let post of dataSource.data" [post]="post" ></app-post-card>
+    </ng-container>
+  </div>
+</div>

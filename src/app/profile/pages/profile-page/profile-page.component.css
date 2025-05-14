@@ -1,0 +1,6 @@
+.centered-page {
+  display: flex;
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;      /* Centra verticalmente */
+  height: 100vh;            /* Ocupa toda la altura de la pantalla */
+}

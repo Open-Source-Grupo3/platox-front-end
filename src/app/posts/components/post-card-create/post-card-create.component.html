@@ -1,0 +1,35 @@
+<mat-dialog-content>
+  <div class="dialog-header">
+    <h3>New Post</h3>
+    <button mat-icon-button class="close-btn" (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <form #postForm="ngForm" (submit)="onSubmit()">
+    <div class="form-content">
+      <div class="input-wrapper">
+        <div class="input-container">
+          <mat-form-field id="title-form-field" class="short-text-field">
+            <input [(ngModel)]="post.title" matInput name="title" placeholder="Title" required>
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field id="description-form-field" class="short-text-field">
+            <input [(ngModel)]="post.description" matInput name="description" placeholder="Description" required>
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field id="img-form-field" class="short-text-field">
+            <input [(ngModel)]="post.image" matInput name="image" placeholder="Image link" required>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </div>
+    <div class="tags">
+      <button mat-raised-button class="tag" (click)="onClose()">Aceptar</button>
+    </div>
+  </form>
+</mat-dialog-content>

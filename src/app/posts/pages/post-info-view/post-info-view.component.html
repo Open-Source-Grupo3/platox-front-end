@@ -42,18 +42,14 @@
       <span *ngIf="!isEditMode" class="view-mode-text">{{ post.title }}</span>
 
       <!-- Imágenes -->
+      <span>Fotos</span>
       <div class="images-container">
-        <img [src]="post.image" alt="Imagen de la tarjeta" class="post-image"/>
+        <img mat-card-image src="https://img-global.cpcdn.com/recipes/c981bb6d3fde7db7/400x400cq70/photo.jpg"
+             alt="Post Image" class="content-images">
+        <img mat-card-image src="https://resuelveconbimbo-com-v2-assets.s3.amazonaws.com/s3fs-public/2024-01/Banner%20Desktop_Wrap%20de%20Pollo.webp?VersionId=Gi5bWLFSfFnCTn80o5DrZEklPfhs8l3q"
+             alt="Post Image" class="content-images">
       </div>
 
-      <div class="description-input-container" *ngIf="isEditMode">
-        <input [(ngModel)]="editableDescription"
-               name="description"
-               placeholder="Description"
-               required
-               class="description-input">
-      </div>
-      <span *ngIf="!isEditMode" class="view-mode-text">{{ post.description }}</span>
 
     </div>
   </div>

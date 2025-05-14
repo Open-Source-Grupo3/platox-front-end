@@ -26,7 +26,7 @@ import {MatCardImage} from '@angular/material/card';
 })
 export class PostInfoViewComponent implements OnInit {
   post!: Post;
-  editableDescription!: string;
+  editableBody!: string;
   editableTitle!: string;
   isEditMode: boolean = false; // Controla el modo de edición
   selectedStatus: string = ''; // Almacena el estado seleccionado
@@ -36,14 +36,14 @@ export class PostInfoViewComponent implements OnInit {
     if (postId) {
       this.postService.getPostById(postId).subscribe(post => {
         this.post = post;
-        this.editableDescription = post.description;
+        this.editableBody = post.body;
         this.editableTitle= post.title;
         this.selectedStatus = post.status || 'Disponible'; // Estado inicial
       });
     }
   }
   updatePost(): void {
-    this.post.description = this.editableDescription;
+    this.post.body = this.editableBody;
     this.post.title = this.editableTitle;
     this.post.status = this.selectedStatus; // Actualiza el estado seleccionado
     this.postService.partialUpdatePost(this.post).subscribe(

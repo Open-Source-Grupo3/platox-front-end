@@ -1,3 +1,5 @@
-<app-header ></app-header>
-<router-outlet/>
-<app-footer ></app-footer>
+<app-header *ngIf="shouldShowToolbar()"></app-header>
+<main>
+<router-outlet></router-outlet>
+</main>
+<app-footer *ngIf="shouldShowToolbar()"></app-footer>

@@ -1,7 +1,7 @@
 export class Post {
   id: number;
   title: string;
-  description: string;
+  body: string;
   image:string;
   status: string;
 
@@ -9,12 +9,12 @@ export class Post {
     id?: number,
     image?: string,
     title?: string,
-    description?: string,
+    body?: string,
     status?: string,} = {}
   ) {
     this.id = post.id|| 0;
     this.title = post.title|| '';
-    this.description = post.description|| '';
+    this.body = post.body|| '';
     this.image = post.image|| '';
     this.status = post.status || 'Disponible';
   }

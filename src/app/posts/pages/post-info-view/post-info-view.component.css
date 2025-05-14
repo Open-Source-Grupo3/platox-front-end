@@ -60,9 +60,10 @@
 
 .images-container {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 16px;
+  justify-content: center;
+  gap: 16px;
 }
 
 .content-images {
@@ -167,14 +168,4 @@
   line-height: 1.2;
   color: #000;
   margin-bottom: 16px;
-}
-
-.post-image {
-  width: 100%;
-  max-width: 400px; /* Estándar de ancho fijo */
-  height: auto; /* Mantiene proporción */
-  aspect-ratio: 4 / 3; /* Asegura forma consistente */
-  object-fit: cover; /* Corta para llenar el contenedor */
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }

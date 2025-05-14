@@ -57,6 +57,7 @@ export class PostsPageComponent implements OnInit{
   }
   private createPost() {
 
+    console.log('🟢 Enviando post al backend:', this.postData);
 
     this.postService.create(this.postData).subscribe((response: Post) => {
       this.dataSource.data.push(response);

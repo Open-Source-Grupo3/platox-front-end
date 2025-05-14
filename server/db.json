@@ -3,16 +3,23 @@
   "posts": [
     {
       "id": 1,
-      "title": "1",
-      "description": "1",
-      "image": "https://estoyhechouncocinillas.com/wp-content/uploads/2023/03/paella-de-marisco.jpg",
-      "status": "Disponible"
+      "title": "l",
+      "body": "1",
+      "image": "a",
+      "status": "No disponible"
     },
     {
       "id": 2,
-      "title": "3",
-      "description": "3",
-      "image": "https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg",
+      "title": "2",
+      "body": "",
+      "image": "",
+      "status": "Disponible"
+    },
+    {
+      "id": 3,
+      "title": "45",
+      "body": "",
+      "image": "https://media.istockphoto.com/id/2154317850/es/foto/buffet-table-full-of-lunch-assorted-dishes-peru-peruvian-food.jpg?s=612x612&w=0&k=20&c=BCXedM-B0p-k-xt0wsiSstTACX28w3cUWxeyEp1AZpI=",
       "status": "Disponible"
     }
   ]

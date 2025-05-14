@@ -21,4 +21,11 @@ export class HeaderComponent {
     {path: '/posts', title: 'Posts'},
     {path: '/profile', title: 'Profile'},
   ]
+
+  isChef: boolean = false;
+
+  ngOnInit(): void {
+    const role = localStorage.getItem('userRole');
+    this.isChef = role === 'chef';
+  }
 }

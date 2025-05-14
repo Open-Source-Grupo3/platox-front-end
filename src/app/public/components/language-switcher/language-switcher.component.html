@@ -1,1 +1,10 @@
-<p>language-switcher works!</p>
+<mat-button-toggle-group
+  [value]="selectedLang"
+  (change)="changeLang($event.value)"
+  appearance="standard"
+  color="primary"
+  exclusive
+>
+  <mat-button-toggle value="en">EN</mat-button-toggle>
+  <mat-button-toggle value="es">ES</mat-button-toggle>
+</mat-button-toggle-group>

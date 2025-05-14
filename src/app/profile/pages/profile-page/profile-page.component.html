@@ -1,3 +1,23 @@
-<div class="centered-page">
-  <p>profile-page works!</p>
-</div>
+<section class="profile-container">
+  <mat-card>
+    <mat-card-title>Select your role</mat-card-title>
+
+    <mat-button-toggle-group
+      [value]="userRole"
+      (change)="selectRole($event.value)"
+      appearance="standard"
+      color="primary"
+      exclusive
+    >
+      <mat-button-toggle value="diner">Diner</mat-button-toggle>
+      <mat-button-toggle value="chef">Chef / Restaurant</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div class="status-message" *ngIf="userRole">
+      <p>You selected: <strong>{{ userRole | titlecase }}</strong></p>
+      <ng-template #noPermission>
+        <p>You are not allowed to create posts.</p>
+      </ng-template>
+    </div>
+  </mat-card>
+</section>

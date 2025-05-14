@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="panel">
+    <div class="panel-heading">
+      <div class="left-side">
+        <button mat-button class="back-button" [routerLink]="['/posts/']">Volver</button>
+      </div>
+
+      <div class="right-side">
+        <!-- Botón de Editar / Aceptar -->
+        <button mat-button
+                class="progress-button"
+                [ngClass]="{'red-button': isEditMode}"
+                (click)="handleToggleClick()">
+          {{ isEditMode ? 'Aceptar' : 'Edit' }}
+        </button>
+
+        <!-- Botón de estado -->
+        <button mat-button
+                [matMenuTriggerFor]="menu"
+                [disabled]="!isEditMode"
+                class="orange-button">
+          {{ selectedStatus }}
+        </button>
+
+        <!-- Menú desplegable para seleccionar estado -->
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="selectStatus('Disponible')">Disponible</button>
+          <button mat-menu-item (click)="selectStatus('No disponible')">No disponible</button>
+        </mat-menu>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <!-- Título -->
+      <div class="title-input-container" *ngIf="isEditMode">
+        <input [(ngModel)]="editableTitle"
+               name="title"
+               placeholder="Title"
+               required
+               class="title-input">
+      </div>
+      <span *ngIf="!isEditMode" class="view-mode-text">{{ post.title }}</span>
+
+      <!-- Imágenes -->
+      <div class="images-container">
+        <img [src]="post.image" alt="Imagen de la tarjeta" class="post-image"/>
+      </div>
+
+      <div class="description-input-container" *ngIf="isEditMode">
+        <input [(ngModel)]="editableDescription"
+               name="description"
+               placeholder="Description"
+               required
+               class="description-input">
+      </div>
+      <span *ngIf="!isEditMode" class="view-mode-text">{{ post.description }}</span>
+
+    </div>
+  </div>
+</div>
+

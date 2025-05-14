@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-image">
+    <img [src]="post.image" alt="Imagen de la tarjeta" />
+  </div>
+  <div class="card-content">
+    <h3 class="card-title">{{ post.title }}</h3>
+    <div class="card-text-container">
+      <div class="card-text">Description: {{ post.description }}</div>
+      <div class="card-text">Status: {{ post.status }}</div>
+    </div>
+    <button class="card-button" [routerLink]="['/posts/post-info', post.id]">Leer más</button>
+  </div>
+</div>

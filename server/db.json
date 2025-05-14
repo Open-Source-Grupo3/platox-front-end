@@ -1,0 +1,19 @@
+{
+  "students": [],
+  "posts": [
+    {
+      "id": 1,
+      "title": "1",
+      "description": "1",
+      "image": "https://estoyhechouncocinillas.com/wp-content/uploads/2023/03/paella-de-marisco.jpg",
+      "status": "Disponible"
+    },
+    {
+      "id": 2,
+      "title": "3",
+      "description": "3",
+      "image": "https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg",
+      "status": "Disponible"
+    }
+  ]
+}

@@ -6,7 +6,6 @@ import {Post} from '../../model/post.entity';
 import {PostService} from '../../services/post.service';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
 import {FormsModule} from '@angular/forms';
-import {MatCardImage} from '@angular/material/card';
 
 @Component({
   selector: 'app-post-info-view',
@@ -19,7 +18,6 @@ import {MatCardImage} from '@angular/material/card';
     MatMenuItem,
     FormsModule,
     NgIf,
-    MatCardImage
   ],
   templateUrl: './post-info-view.component.html',
   styleUrl: './post-info-view.component.css'

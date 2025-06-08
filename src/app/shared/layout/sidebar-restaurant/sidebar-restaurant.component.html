@@ -1,0 +1,28 @@
+<mat-nav-list class="sidebar">
+  <div class="sidebar-logo">
+    <a routerLink="/home">
+      <img src="assets/img/PlatoX.png" alt="PlatoX Logo" />
+    </a>
+  </div>
+
+  <ng-container *ngFor="let item of menuItems">
+    <a
+      *ngIf="item.route"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      class="sidebar-item"
+    >
+      <mat-icon>{{ item.icon }}</mat-icon>
+      <span>{{ item.label }}</span>
+    </a>
+
+    <a
+      *ngIf="item.action"
+      (click)="item.action()"
+      class="sidebar-item"
+    >
+      <mat-icon>{{ item.icon }}</mat-icon>
+      <span>{{ item.label }}</span>
+    </a>
+  </ng-container>
+</mat-nav-list>

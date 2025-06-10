@@ -1,11 +1,1 @@
-<ng-container *ngIf="userRole === 'diner'">
-  <app-sidebar-diner></app-sidebar-diner>
-</ng-container>
-
-<ng-container *ngIf="userRole === 'restaurant'">
-  <app-sidebar-restaurant></app-sidebar-restaurant>
-</ng-container>
-
-<main class="main-content">
-  <router-outlet></router-outlet>
-</main>
+<router-outlet></router-outlet>

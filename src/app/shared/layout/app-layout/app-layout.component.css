@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  height: 100vh;
+}
+
+app-sidebar-diner,
+app-sidebar-restaurant {
+  width: 250px;
+  background-color: #f5f5f5;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}

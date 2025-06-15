@@ -1,35 +1,19 @@
 import { Routes } from '@angular/router';
+import {HomeComponent} from './public/pages/home/home.component';
+import {PostsPageComponent} from './posts/pages/posts-page/posts-page.component';
+import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
+import {PostInfoViewComponent} from './posts/pages/post-info-view/post-info-view.component';
 
-import { LoginComponent } from './public/pages/login/login.component';
-import { HomeComponent } from './public/pages/home/home.component';
-import {MapComponent} from './restaurant-locator/pages/map/map.component';
-import {AppLayoutComponent} from './shared/layout/app-layout/app-layout.component';
 
 const PageNotFoundComponent = () =>
-  import('./public/pages/page-not-found/page-not-found.component')
-    .then(m => m.PageNotFoundComponent);
+  import('./public/pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent);
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  {
-    path: 'diner',
-    component: AppLayoutComponent,
-    children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'map', component: MapComponent },
-      /*{ path: 'favorites', component: FavoritesComponent },
-      { path: 'profile', component: ProfileComponent }*/
-    ]
-  },
-  {
-    path: 'chef',
-    component: AppLayoutComponent,
-    children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'map', component: MapComponent },
-      /*{ path: 'profile', component: ProfileComponent }*/
-    ]
-  },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', loadComponent: PageNotFoundComponent }
+  { path: 'home',  component: HomeComponent },
+  { path: 'posts', component: PostsPageComponent },
+  { path: 'posts/post-info/:id', component: PostInfoViewComponent},
+  { path: 'profile', component: ProfilePageComponent },
+  { path: '',      redirectTo: '/home', pathMatch: 'full' },
+  { path: '**',    loadComponent: PageNotFoundComponent },
+
 ];

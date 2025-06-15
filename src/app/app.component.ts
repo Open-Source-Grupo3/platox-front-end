@@ -1,13 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {NgIf} from '@angular/common';
-import {SidebarDinerComponent} from './shared/layout/sidebar-diner/sidebar-diner.component';
-import {SidebarRestaurantComponent} from './shared/layout/sidebar-restaurant/sidebar-restaurant.component';
 
 @Component({
   selector: 'app-root',
-  imports: [NgIf, SidebarDinerComponent, SidebarRestaurantComponent, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,0 +1,46 @@
+<mat-card class="restaurant-info" *ngIf="restaurant">
+  <mat-card-title>{{ restaurant.name }}</mat-card-title>
+  <mat-card-subtitle>{{ restaurant.foodType }} | {{ restaurant.address }}</mat-card-subtitle>
+  <mat-card-content>
+    <p>{{ restaurant.description }}</p>
+  </mat-card-content>
+</mat-card>
+
+<h3 class="section-title">Platos registrados</h3>
+
+<div class="dish-list" *ngIf="restaurant.dishes?.length; else noDishes">
+  <app-dish-card
+    *ngFor="let dish of restaurant.dishes"
+    [dish]="dish"
+    (deleteRequested)="deleteDish($event)"
+  />
+</div>
+
+<ng-template #noDishes>
+  <p>No hay platos aún.</p>
+</ng-template>
+
+<h3 class="section-title">Agregar nuevo plato</h3>
+
+<form (ngSubmit)="addDish()" class="dish-form">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Nombre del plato" [(ngModel)]="newDish.name" name="name" required />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Precio" type="number" [(ngModel)]="newDish.price" name="price" required />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="URL de imagen" [(ngModel)]="newDish.image" name="image" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-select [(ngModel)]="newDish.available" name="available" placeholder="Estado" required>
+      <mat-option value="available">Disponible</mat-option>
+      <mat-option value="unavailable">No disponible</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Agregar Plato</button>
+</form>

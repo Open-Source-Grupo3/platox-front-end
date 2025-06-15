@@ -1,0 +1,39 @@
+<!-- Create and Edit Restaurant -->
+<h2>{{ editMode ? 'Editar Restaurante' : 'Nuevo Restaurante' }}</h2>
+
+<div class="form-section">
+  <form #restaurantForm="ngForm" (submit)="onSubmit()" class="form-row">
+
+    <mat-form-field class="full-width" id="name-form-field">
+      <input [(ngModel)]="restaurant.name" matInput name="name" placeholder="Nombre del restaurante" required />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" id="description-form-field">
+      <input [(ngModel)]="restaurant.description" matInput name="description" placeholder="Descripción" required />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" id="address-form-field">
+      <input [(ngModel)]="restaurant.address" matInput name="address" placeholder="Dirección" required />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" id="type-form-field">
+      <mat-select [(ngModel)]="restaurant.foodType" name="foodType" placeholder="Tipo de comida" required>
+        <mat-option value="Criollo">Criollo</mat-option>
+        <mat-option value="Marino">Marino</mat-option>
+        <mat-option value="Fast Food">Fast Food</mat-option>
+        <mat-option value="Italiana">Italiana</mat-option>
+        <mat-option value="Vegana">Vegana</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <ng-container>
+      <button mat-raised-button color="primary">
+        {{ isEditMode() ? 'Actualizar' : 'Registrar' }}
+      </button>
+      <button mat-raised-button color="warn" type="button" (click)="onCancel()">
+        Cancelar
+      </button>
+    </ng-container>
+
+  </form>
+</div>

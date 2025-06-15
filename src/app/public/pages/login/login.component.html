@@ -1,0 +1,22 @@
+<mat-card class="login-card">
+  <h2>Bienvenido a PlatoX</h2>
+
+  <mat-radio-group [(ngModel)]="role" class="role-selector">
+    <mat-radio-button value="diner">Comensal</mat-radio-button>
+    <mat-radio-button value="chef">Chef / Restaurante</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Correo electrónico</mat-label>
+    <input matInput [(ngModel)]="email" type="email" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Contraseña</mat-label>
+    <input matInput [(ngModel)]="password" type="password" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="login()">
+    Iniciar sesión
+  </button>
+</mat-card>

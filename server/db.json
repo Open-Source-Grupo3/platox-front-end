@@ -1,5 +1,4 @@
 {
-  "students": [],
   "posts": [
     {
       "id": 1,
@@ -14,6 +13,41 @@
       "description": "3",
       "image": "https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg",
       "status": "Disponible"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "ownerId": 1,
+      "name": "Sazón Peruana",
+      "description": "Comida criolla con sabor casero.",
+      "address": "Av. Los Patriotas 123, San Miguel",
+      "foodType": "Criollo",
+      "dishes": [
+        {
+          "id": 1,
+          "name": "Ají de Gallina",
+          "price": 20,
+          "image": "./src/assets/img/anticucheria.png",
+          "available": "Disponible"
+        },
+        {
+          "id": 1749956534925,
+          "name": "Chicharron",
+          "price": 15,
+          "image": "https://th.bing.com/th/id/OIP.VekYTHVt9GbubZNf5MWJEwHaE8?w=264&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+          "available": "available"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Marco Nakasone",
+      "email": "marco@platox.com",
+      "role": "chef",
+      "restaurant": "Sazón Peruana"
     }
   ]
 }

@@ -1,0 +1,18 @@
+<mat-card class="dish-card">
+  <mat-card-header>
+    <mat-card-title>{{ dish.name }}</mat-card-title>
+    <mat-card-subtitle>Estado: {{ dish.available }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img *ngIf="dish.image" [src]="dish.image" alt="{{ dish.name }}" class="dish-image" />
+
+  <mat-card-content>
+    <p><strong>Precio:</strong> S/ {{ dish.price }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-icon-button color="warn" (click)="deleteDish()" aria-label="Eliminar plato">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

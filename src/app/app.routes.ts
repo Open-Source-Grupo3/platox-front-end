@@ -8,6 +8,12 @@ import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.co
 import {RestaurantListComponent} from './restaurant/pages/restaurant-list/restaurant-list.component';
 import {RestaurantCreateAndEditComponent} from './restaurant/components/restaurant-create/restaurant-create.component';
 import {RestaurantDetailsComponent} from './restaurant/components/restaurant-details/restaurant-details.component';
+import {
+  ExploreRestaurantListComponent
+} from './explore/components/explore-restaurant-list/explore-restaurant-list.component';
+import {
+  ExploreRestaurantDetailsComponent
+} from './explore/components/explore-restaurant-details/explore-restaurant-details.component';
 
 const PageNotFoundComponent = () =>
   import('./public/pages/page-not-found/page-not-found.component')
@@ -22,7 +28,9 @@ export const routes: Routes = [
       {path: 'home', component: HomeComponent},
       {path: 'map', component: MapComponent},
       //{ path: 'favorites', component: FavoritesComponent },*/
-      {path: 'profile', component: ProfilePageComponent}
+      {path: 'profile', component: ProfilePageComponent},
+      { path: 'restaurants', component: ExploreRestaurantListComponent },
+      { path: 'restaurants/:id', component: ExploreRestaurantDetailsComponent }
     ]
   },
   {

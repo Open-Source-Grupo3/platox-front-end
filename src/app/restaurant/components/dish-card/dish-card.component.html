@@ -1,18 +1,55 @@
 <mat-card class="dish-card">
-  <mat-card-header>
-    <mat-card-title>{{ dish.name }}</mat-card-title>
-    <mat-card-subtitle>Estado: {{ dish.available }}</mat-card-subtitle>
-  </mat-card-header>
+  <ng-template #editForm>
+    <mat-card>
+      <mat-card-content>
+        <mat-form-field appearance="fill" class="full-width">
+          <input matInput [(ngModel)]="editedDish.name" placeholder="Nombre" />
+        </mat-form-field>
 
-  <img *ngIf="dish.image" [src]="dish.image" alt="{{ dish.name }}" class="dish-image" />
+        <mat-form-field appearance="fill" class="full-width">
+          <input matInput type="number" [(ngModel)]="editedDish.price" placeholder="Precio" />
+        </mat-form-field>
 
-  <mat-card-content>
-    <p><strong>Precio:</strong> S/ {{ dish.price }}</p>
-  </mat-card-content>
+        <mat-form-field appearance="fill" class="full-width">
+          <input matInput [(ngModel)]="editedDish.image" placeholder="URL Imagen" />
+        </mat-form-field>
 
-  <mat-card-actions>
-    <button mat-icon-button color="warn" (click)="deleteDish()" aria-label="Eliminar plato">
-      <mat-icon>delete</mat-icon>
-    </button>
-  </mat-card-actions>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-select [(ngModel)]="editedDish.available" placeholder="Estado">
+            <mat-option value="available">Disponible</mat-option>
+            <mat-option value="unavailable">No disponible</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="actions">
+          <button mat-button color="primary" (click)="saveEdit()">Guardar</button>
+          <button mat-button color="warn" (click)="cancelEdit()">Cancelar</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+
+  <ng-container *ngIf="!isEditMode; else editForm">
+    <mat-card class="dish-card">
+      <mat-card-header>
+        <mat-card-title>{{ dish.name }}</mat-card-title>
+        <mat-card-subtitle>Estado: {{ dish.available }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <img *ngIf="dish.image" [src]="dish.image" alt="{{ dish.name }}" class="dish-image" />
+
+      <mat-card-content>
+        <p><strong>Precio:</strong> S/ {{ dish.price }}</p>
+      </mat-card-content>
+
+      <mat-card-actions *ngIf="editable">
+        <button mat-icon-button color="primary" (click)="toggleEdit()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteRequested.emit(dish.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
 </mat-card>

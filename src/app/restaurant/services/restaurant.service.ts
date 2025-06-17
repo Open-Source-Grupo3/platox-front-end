@@ -3,7 +3,7 @@ import {environment} from '../../../environments/environment';
 import {BaseService} from '../../shared/services/base.service';
 import {Restaurant} from '../model/restaurant.entity';
 
-const restaurantResourceEndpointPath= environment.restaurantEndpointPath;
+const restaurantsResourceEndpointPath= environment.restaurantsEndpointPath;
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,6 @@ export class RestaurantService extends BaseService<Restaurant>{
 
   constructor() {
     super();
-    this.resourceEndpoint = restaurantResourceEndpointPath;
+    this.resourceEndpoint = restaurantsResourceEndpointPath;
   }
 }

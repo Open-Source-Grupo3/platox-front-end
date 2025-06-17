@@ -33,7 +33,7 @@ export class RestaurantListComponent implements OnInit {
   }
 
   goToCreate(): void {
-    window.location.href = '/chef/restaurant/create';
+    window.location.href = '/chef/restaurants/create';
   }
 
   goToDetails(id: number): void {

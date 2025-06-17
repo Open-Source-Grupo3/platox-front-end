@@ -41,8 +41,13 @@ export class RestaurantDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.restaurantService.getById(id).subscribe(res => {
+
+    this.restaurantService.getById(id).subscribe((res) => {
       this.restaurant = res;
+
+      if (!this.restaurant.dishes) {
+        this.restaurant.dishes = [];
+      }
     });
   }
 
@@ -53,10 +58,23 @@ export class RestaurantDetailsComponent implements OnInit {
       this.newDish.image &&
       this.newDish.available
     ) {
-      this.newDish.id = Date.now(); // ID temporal único
+      this.newDish.id = Date.now();
+
       this.restaurant.dishes.push(this.newDish);
       this.restaurantService.update(this.restaurant.id, this.restaurant).subscribe(() => {
         this.newDish = new Dish({});
+        this.snackBar.open('Plato agregado correctamente', 'Cerrar', { duration: 3000 });
+      });
+    }
+  }
+
+  updateDish(updated: Dish): void {
+    const index = this.restaurant.dishes.findIndex(d => d.id === updated.id);
+    if (index > -1) {
+      this.restaurant.dishes[index] = updated;
+
+      this.restaurantService.update(this.restaurant.id, this.restaurant).subscribe(() => {
+        this.snackBar.open('Plato actualizado', 'Cerrar', { duration: 3000 });
       });
     }
   }

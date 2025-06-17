@@ -34,6 +34,11 @@
         Cancelar
       </button>
     </ng-container>
+    <ng-container *ngIf="isEditMode()">
+      <button mat-raised-button color="warn" (click)="onDelete()">
+        <mat-icon>delete</mat-icon> Eliminar restaurante
+      </button>
+    </ng-container>
 
   </form>
 </div>

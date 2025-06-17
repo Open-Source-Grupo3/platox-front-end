@@ -23,10 +23,11 @@ export class SidebarRestaurantComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuItems = [
-      {icon: 'home', label: 'Inicio', route: '/chef/home'},
-      {icon: 'person', label: 'Perfil', route: '/chef/profile'},
-      {icon: 'map', label: 'Mapa', route: '/chef/restaurant-locator'},
-      {icon: 'logout', label: 'Cerrar sesión', action: () => this.logout()}
+      {icon: 'home', label: 'Home', route: '/chef/home'},
+      {icon: 'person', label: 'Profile', route: '/chef/profile'},
+      {icon: 'map', label: 'Map', route: '/chef/restaurant-locator'},
+      {icon: 'restaurant', label: 'My Restaurants', route: '/chef/restaurants'},
+      {icon: 'logout', label: 'Log Out', action: () => this.logout()}
     ];
   }
 

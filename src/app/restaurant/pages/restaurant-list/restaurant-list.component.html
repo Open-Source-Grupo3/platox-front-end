@@ -1,13 +1,16 @@
 <div class="container">
   <h2 class="mat-headline-5">Mis Restaurantes</h2>
 
+  <div class="add-button">
+    <button mat-raised-button color="primary" (click)="goToCreate()">
+      <mat-icon>add</mat-icon> Registrar nueva sede
+    </button>
+  </div>
+
   <ng-container *ngIf="restaurants.length === 0; else list">
     <mat-card class="mat-elevation-z3 empty-card">
       <mat-card-content>
         <p>No has registrado ningún restaurante aún.</p>
-        <button mat-raised-button color="primary" (click)="goToCreate()">
-          <mat-icon>add</mat-icon> Registrar restaurante
-        </button>
       </mat-card-content>
     </mat-card>
   </ng-container>
@@ -27,8 +30,13 @@
           <button mat-button color="accent" (click)="goToDetails(r.id)">
             Ver detalles <mat-icon>arrow_forward</mat-icon>
           </button>
+          <button mat-button color="primary" [routerLink]="['/chef/restaurants', r.id, 'edit']">
+            <mat-icon>edit</mat-icon> Editar
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
   </ng-template>
+
+
 </div>

@@ -6,7 +6,7 @@ import {MapComponent} from './restaurant-locator/pages/map/map.component';
 import {AppLayoutComponent} from './shared/layout/app-layout/app-layout.component';
 import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
 import {RestaurantListComponent} from './restaurant/pages/restaurant-list/restaurant-list.component';
-import {RestaurantCreateAndEditComponent} from './restaurant/components/restaurant-create/restaurant-create.component';
+import {RestaurantCreateAndEditComponent} from './restaurant/components/restaurant-create-and-edit/restaurant-create-and-edit.component';
 import {RestaurantDetailsComponent} from './restaurant/components/restaurant-details/restaurant-details.component';
 import {
   ExploreRestaurantListComponent
@@ -42,7 +42,8 @@ export const routes: Routes = [
       {path: 'profile', component: ProfilePageComponent},
       {path: 'restaurants', component: RestaurantListComponent},
       {path: 'restaurants/create', component: RestaurantCreateAndEditComponent},
-      {path: 'restaurants/:id', component: RestaurantDetailsComponent}
+      {path: 'restaurants/:id', component: RestaurantDetailsComponent},
+      {path: 'restaurants/:id/edit', component: RestaurantCreateAndEditComponent}
     ]
   },
   {path: '', redirectTo: 'login', pathMatch: 'full'},

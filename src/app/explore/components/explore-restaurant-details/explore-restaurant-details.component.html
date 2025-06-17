@@ -19,6 +19,7 @@
     <app-dish-card
       *ngFor="let dish of restaurant.dishes"
       [dish]="dish"
+      [editable]="false"
     ></app-dish-card>
   </div>
 </ng-container>

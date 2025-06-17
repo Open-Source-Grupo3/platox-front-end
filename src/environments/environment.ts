@@ -3,5 +3,5 @@ export const environment = {
   serverBaseUrl:'http://localhost:3000/api/v1',
   postsEndpointPath: '/posts',
   usersEndpointPath: '/users',
-  restaurantEndpointPath: '/restaurants'
+  restaurantsEndpointPath: '/restaurants'
 };

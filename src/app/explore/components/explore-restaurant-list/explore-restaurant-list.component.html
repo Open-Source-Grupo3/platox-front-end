@@ -1,0 +1,14 @@
+<h2>Restaurantes disponibles</h2>
+
+<div class="restaurant-grid">
+  <mat-card *ngFor="let r of restaurants" class="restaurant-card">
+    <mat-card-title>{{ r.name }}</mat-card-title>
+    <mat-card-subtitle>{{ r.foodType }} - {{ r.address }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ r.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [routerLink]="['/diner/restaurants', r.id]" mat-button color="primary">Ver platos</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

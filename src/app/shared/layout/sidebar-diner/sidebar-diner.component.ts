@@ -1,37 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import {MatNavList} from '@angular/material/list';
-import {RouterLink, RouterLinkActive} from '@angular/router';
-import {NgForOf, NgIf} from '@angular/common';
-import {MatIcon} from '@angular/material/icon';
+import {Component} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {NgFor, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-sidebar-diner',
-  templateUrl: './sidebar-diner.component.html',
-  styleUrls: ['./sidebar-diner.component.css'],
+  standalone: true,
   imports: [
-    MatNavList,
-    RouterLink,
-    NgForOf,
-    NgIf,
-    MatIcon,
-    RouterLinkActive
+    RouterModule,
+    MatListModule,
+    MatIconModule,
+    NgFor,
+    NgIf
   ],
-  standalone: true
+  templateUrl: './sidebar-diner.component.html',
+  styleUrls: ['./sidebar-diner.component.css']
 })
-export class SidebarDinerComponent implements OnInit {
+export class SidebarDinerComponent {
   menuItems = [
-    { icon: 'home', label: 'Inicio', route: '/home' },
-    { icon: 'favorite', label: 'Favoritos', route: '/favorites' },
-    { icon: 'person', label: 'Perfil', route: '/profile' },
-    { icon: 'map', label: 'Mapa', route: '/restaurant-locator' },
-    { icon: 'settings', label: 'Configuración', route: '/settings' },
-    { icon: 'logout', label: 'Cerrar sesión', action: this.logout.bind(this) }
+    {label: 'Home', icon: 'home', route: '/diner/home'},
+    {label: 'Favorites', icon: 'favorite', route: '/diner/favorites'},
+    {label: 'Profile', icon: 'person', route: '/diner/profile'},
+    {label: 'Map', icon: 'map', route: '/diner/map'},
+    {
+      label: 'Logout',
+      icon: 'logout',
+      action: () => {
+        localStorage.clear();
+        location.href = '/login';
+      }
+    }
   ];
-
-  ngOnInit(): void {}
-
-  logout(): void {
-    localStorage.clear();
-    location.href = '/login';
-  }
 }

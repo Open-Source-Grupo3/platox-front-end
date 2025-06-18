@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatNavList} from '@angular/material/list';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {NgForOf, NgIf} from '@angular/common';
@@ -6,28 +6,30 @@ import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-sidebar-restaurant',
+  standalone: true,
   templateUrl: './sidebar-restaurant.component.html',
   styleUrls: ['./sidebar-restaurant.component.css'],
   imports: [
     MatNavList,
     RouterLink,
-    NgForOf,
     RouterLinkActive,
+    NgForOf,
     NgIf,
     MatIcon,
-  ],
-  standalone: true
+  ]
 })
 export class SidebarRestaurantComponent implements OnInit {
-  menuItems = [
-    { icon: 'home', label: 'Inicio', route: '/home' },
-    { icon: 'person', label: 'Perfil', route: '/profile' },
-    { icon: 'map', label: 'Mapa', route: '/restaurant-locator' },
-    { icon: 'settings', label: 'Configuración', route: '/settings' },
-    { icon: 'logout', label: 'Cerrar sesión', action: this.logout.bind(this) }
-  ];
+  menuItems: any[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menuItems = [
+      {icon: 'home', label: 'Home', route: '/chef/home'},
+      {icon: 'person', label: 'Profile', route: '/chef/profile'},
+      {icon: 'map', label: 'Map', route: '/chef/restaurant-locator'},
+      {icon: 'restaurant', label: 'My Restaurants', route: '/chef/restaurants'},
+      {icon: 'logout', label: 'Log Out', action: () => this.logout()}
+    ];
+  }
 
   logout(): void {
     localStorage.clear();

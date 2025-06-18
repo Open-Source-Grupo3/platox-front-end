@@ -1,0 +1,16 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+app-sidebar-diner,
+app-sidebar-restaurant {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}

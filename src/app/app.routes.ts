@@ -14,6 +14,7 @@ import {
 import {
   ExploreRestaurantDetailsComponent
 } from './explore/components/explore-restaurant-details/explore-restaurant-details.component';
+import {FavoriteListComponent} from './favorites/components/favorite-list/favorite-list.component';
 
 const PageNotFoundComponent = () =>
   import('./public/pages/page-not-found/page-not-found.component')
@@ -27,10 +28,10 @@ export const routes: Routes = [
     children: [
       {path: 'home', component: HomeComponent},
       {path: 'map', component: MapComponent},
-      //{ path: 'favorites', component: FavoritesComponent },*/
+      {path: 'favorites', component: FavoriteListComponent },
       {path: 'profile', component: ProfilePageComponent},
-      { path: 'restaurants', component: ExploreRestaurantListComponent },
-      { path: 'restaurants/:id', component: ExploreRestaurantDetailsComponent }
+      {path: 'restaurants', component: ExploreRestaurantListComponent },
+      {path: 'restaurants/:id', component: ExploreRestaurantDetailsComponent }
     ]
   },
   {

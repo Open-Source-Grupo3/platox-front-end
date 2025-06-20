@@ -9,6 +9,14 @@
     </mat-card-content>
     <mat-card-actions>
       <a [routerLink]="['/diner/restaurants', r.id]" mat-button color="primary">Ver platos</a>
+      <button mat-button (click)="toggleFavorite(r)">
+        <mat-icon>{{ isFavorite(r.id) ? 'favorite' : 'favorite_border' }}</mat-icon>
+        {{ isFavorite(r.id) ? 'Quitar' : 'Favorito' }}
+      </button>
     </mat-card-actions>
+    <mat-chip color="accent" *ngIf="isPremiumRestaurant(r)">
+      ⭐ Chef Premium
+    </mat-chip>
+
   </mat-card>
 </div>

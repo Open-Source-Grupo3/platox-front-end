@@ -1,0 +1,33 @@
+<ng-container *ngIf="restaurant && restaurant.dishes">
+  <mat-card class="restaurant-header">
+    <mat-card-title>
+      <mat-icon color="primary">storefront</mat-icon> {{ restaurant.name }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ restaurant.foodType }} • {{ restaurant.address }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ restaurant.description }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-divider class="section-divider"></mat-divider>
+
+  <h3>Platos disponibles</h3>
+
+  <div *ngIf="restaurant.dishes.length > 0; else noDishes" class="dish-grid">
+    <app-dish-card
+      *ngFor="let dish of restaurant.dishes"
+      [dish]="dish"
+      [editable]="false"
+    ></app-dish-card>
+  </div>
+</ng-container>
+
+<ng-template #noDishes>
+  <mat-card>
+    <mat-card-content>
+      <p>No hay platos disponibles en este restaurante.</p>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

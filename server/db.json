@@ -1,5 +1,4 @@
 {
-  "students": [],
   "posts": [
     {
       "id": 1,
@@ -14,6 +13,51 @@
       "description": "3",
       "image": "https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg",
       "status": "Disponible"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "ownerId": 1,
+      "name": "Sazón Peruana",
+      "description": "Comida criolla con sabor casero.",
+      "address": "Av. Los Patriotas 123, San Miguel",
+      "foodType": "Criollo",
+      "dishes": [
+        {
+          "id": 1,
+          "name": "Ají de Gallina",
+          "price": 20,
+          "image": "https://bing.com/th?id=OSK.bb17b9682faad3d8e133ae83ab01fbd6",
+          "available": "available"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "name": "Kenzo",
+      "description": "Chicharroneria",
+      "address": "Jr. Avenida 123",
+      "foodType": "Criollo",
+      "dishes": [
+        {
+          "id": 1750126063370,
+          "name": "chaufa",
+          "price": 23,
+          "image": "https://media.istockphoto.com/id/2154317850/es/foto/buffet-table-full-of-lunch-assorted-dishes-peru-peruvian-food.jpg?s=612x612&w=0&k=20&c=BCXedM-B0p-k-xt0wsiSstTACX28w3cUWxeyEp1AZpI=",
+          "available": "unavailable"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Gonzalo Carhuancote",
+      "email": "gonzalo@platox.com",
+      "role": "chef",
+      "restaurant": "Sazón Peruana"
     }
   ]
 }

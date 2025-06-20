@@ -2,4 +2,6 @@ export const environment = {
   production:true,
   serverBaseUrl:'http://localhost:3000/api/v1',
   postsEndpointPath: '/posts',
+  usersEndpointPath: '/users',
+  restaurantsEndpointPath: '/restaurants'
 };

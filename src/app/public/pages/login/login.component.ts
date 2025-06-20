@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+  import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
+import {UserService} from '../../../profile/services/user.service';
+import {MatIcon} from '@angular/material/icon';
+  import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -17,25 +20,31 @@ import { MatRadioModule } from '@angular/material/radio';
     MatInputModule,
     MatButtonModule,
     MatRadioModule,
+    MatIcon,
+    NgIf,
   ]
 })
 export class LoginComponent {
-  email = '';
+
+  username = '';
   password = '';
-  role: 'diner' | 'chef' = 'diner';
+  error = '';
 
-  constructor(private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+  }
 
-  login() {
-    if (!this.email || !this.password) {
-      alert('Por favor, complete todos los campos.');
-      return;
-    }
-
-    // Guardar role simulado
-    localStorage.setItem('userRole', this.role);
-
-    // Redirigir según el rol
-    this.router.navigate([`/${this.role}/home`]);
+  login(): void {
+    this.userService.login(this.username, this.password).subscribe(success => {
+      if (success) {
+        const role = this.userService.getRole();
+        if (role === 'chef') {
+          this.router.navigate(['/chef/home']);
+        } else {
+          this.router.navigate(['/diner/home']);
+        }
+      } else {
+        this.error = 'Credenciales incorrectas';
+      }
+    });
   }
 }

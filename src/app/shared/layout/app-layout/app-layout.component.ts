@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { SidebarDinerComponent } from '../sidebar-diner/sidebar-diner.component';
-import { SidebarRestaurantComponent } from '../sidebar-restaurant/sidebar-restaurant.component';
-import { RouterOutlet } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
+import {SidebarDinerComponent} from '../sidebar-diner/sidebar-diner.component';
+import {SidebarRestaurantComponent} from '../sidebar-restaurant/sidebar-restaurant.component';
+import {RouterOutlet} from '@angular/router';
+import {filter} from 'rxjs/operators';
 import {NgIf} from '@angular/common';
 
 @Component({

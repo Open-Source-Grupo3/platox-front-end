@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { User } from '../../model/user.entity';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {FormsModule, NgForm} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {User} from '../../model/user.entity';
 import {BaseFormComponent} from '../../../shared/components/base-form.component';
+import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
 
 /**
  * Component for editing user profile information.
@@ -18,24 +19,19 @@ import {BaseFormComponent} from '../../../shared/components/base-form.component'
     MatFormFieldModule,
     FormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatCard,
+    MatCardTitle,
+    MatCardContent,
   ]
 })
-export class ProfileEditComponent extends  BaseFormComponent{
-  /** User being edited */
+export class ProfileEditComponent extends BaseFormComponent {
   @Input() user!: User;
 
-  /** Whether we are in edit mode */
-  @Input() editMode: boolean = false;
-
-  /** Event emitted when a profile update is requested */
   @Output() protected userUpdateRequested = new EventEmitter<User>();
-
-  /** Event emitted when cancel is requested */
   @Output() protected cancelRequested = new EventEmitter<void>();
 
-  /** Reference to the profile form */
-  @ViewChild('profileForm', { static: false }) protected profileForm!: NgForm;
+  @ViewChild('profileForm', {static: false}) protected profileForm!: NgForm;
 
   constructor() {
     super();
@@ -44,12 +40,10 @@ export class ProfileEditComponent extends  BaseFormComponent{
 
   private resetEditState(): void {
     this.user = new User({});
-    this.editMode = false;
     this.profileForm.reset();
   }
 
   private isValid = () => this.profileForm.valid;
-  protected isEditMode = (): boolean => this.editMode;
 
   protected onSubmit(): void {
     if (this.isValid()) {

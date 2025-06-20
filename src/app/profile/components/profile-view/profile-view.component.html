@@ -1,0 +1,28 @@
+<mat-list>
+  <mat-list-item>
+    <strong>Nombre completo:</strong> {{ user.fullName }}
+  </mat-list-item>
+
+  <mat-list-item>
+    <strong>Correo:</strong> {{ user.email }}
+  </mat-list-item>
+
+  <mat-list-item>
+    <strong>Nombre de usuario:</strong> {{ user.username }}
+  </mat-list-item>
+
+  <mat-list-item>
+    <strong>Rol:</strong> {{ user.role === 'chef' ? 'Chef' : 'Comensal' }}
+  </mat-list-item>
+
+  <mat-list-item *ngIf="user.role === 'chef'">
+    <div class="plan-line">
+      <strong>Plan:</strong>
+      <span *ngIf="user.plan === 'premium'">Premium ⭐</span>
+      <span *ngIf="user.plan === 'basic'">
+      Basic
+      <button mat-button color="accent" (click)="upgrade()">Actualizar a Premium</button>
+    </span>
+    </div>
+  </mat-list-item>
+</mat-list>

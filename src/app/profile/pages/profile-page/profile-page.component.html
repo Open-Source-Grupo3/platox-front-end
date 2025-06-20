@@ -1,50 +1,20 @@
-<div class="profile-wrapper">
-  <h1>Mi Perfil</h1>
-
-  <!-- Formulario de edición -->
-  <app-profile-edit
-    [user]="userData"
-    [editMode]="editMode"
-    (cancelRequested)="onCancelRequested()"
-    (userUpdateRequested)="onUserUpdateRequested($event)">
-  </app-profile-edit>
-
-  <!-- Tabla visual -->
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let user">{{ user.id }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="fullName">
-      <th mat-header-cell *matHeaderCellDef>Nombre</th>
-      <td mat-cell *matCellDef="let user">{{ user.fullName }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Email</th>
-      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="restaurant">
-      <th mat-header-cell *matHeaderCellDef>Restaurante</th>
-      <td mat-cell *matCellDef="let user">{{ user.restaurant }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let user">
-        <button mat-icon-button (click)="onEditItem(user)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"
-        [ngClass]="{ 'editable-row': userData && userData.id === row.id }">
-    </tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5]" [pageSize]="5" showFirstLastButtons></mat-paginator>
-</div>
+<mat-card class="profile-container">
+  <mat-card-title>Mi Perfil</mat-card-title>
+  <mat-card-content>
+    <app-profile-edit
+      *ngIf="editMode"
+      [user]="user"
+      (userUpdateRequested)="onUserUpdateRequested($event)"
+      (cancelRequested)="onCancelRequested()"
+    />
+    <app-profile-view
+      *ngIf="!editMode"
+      [user]="user"
+    />
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="toggleEdit()">
+      {{ editMode ? 'Cancelar' : 'Editar perfil' }}
+    </button>
+  </mat-card-actions>
+</mat-card>

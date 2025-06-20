@@ -1,22 +1,22 @@
-<h2>{{ editMode ? 'Editar Perfil' : 'Nuevo Usuario' }}</h2>
+<mat-card>
+  <mat-card-title>Editar Perfil</mat-card-title>
 
-<div class="form-section">
-  <form #profileForm="ngForm" (submit)="onSubmit()" class="form-row">
-    <mat-form-field id="name-form-field">
-      <input [(ngModel)]="user.fullName" matInput name="fullName" placeholder="Nombre completo" required />
-    </mat-form-field>
+  <mat-card-content>
+    <form #profileForm="ngForm" (ngSubmit)="onSubmit()" class="form-section">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Nombre completo</mat-label>
+        <input [(ngModel)]="user.fullName" matInput name="fullName" required/>
+      </mat-form-field>
 
-    <mat-form-field id="email-form-field">
-      <input [(ngModel)]="user.email" matInput type="email" name="email" placeholder="Email" required />
-    </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input [(ngModel)]="user.email" matInput type="email" name="email" required/>
+      </mat-form-field>
 
-    <mat-form-field id="restaurant-form-field">
-      <input [(ngModel)]="user.restaurant" matInput name="restaurant" placeholder="Restaurante" />
-    </mat-form-field>
-
-    <div class="form-actions">
-      <button color="primary" mat-raised-button>{{ isEditMode() ? 'Guardar' : 'Agregar' }}</button>
-      <button (click)="onCancel()" color="warn" mat-raised-button>Cancelar</button>
-    </div>
-  </form>
-</div>
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <button mat-button color="warn" type="button" (click)="onCancel()">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,22 +1,27 @@
-<mat-card class="login-card">
-  <h2>Bienvenido a PlatoX</h2>
+<div class="login-page">
+  <div class="login-wrapper">
+    <mat-card class="login-card">
+      <h2>Bienvenido a PlatoX</h2>
 
-  <mat-radio-group [(ngModel)]="role" class="role-selector">
-    <mat-radio-button value="diner">Comensal</mat-radio-button>
-    <mat-radio-button value="chef">Chef / Restaurante</mat-radio-button>
-  </mat-radio-group>
+      <form (ngSubmit)="login()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Usuario</mat-label>
+          <input matInput [(ngModel)]="username" name="username" required />
+        </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Correo electrónico</mat-label>
-    <input matInput [(ngModel)]="email" type="email" />
-  </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [(ngModel)]="password" name="password" type="password" required />
+        </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Contraseña</mat-label>
-    <input matInput [(ngModel)]="password" type="password" />
-  </mat-form-field>
+        <div class="error-message" *ngIf="error">
+          <mat-icon color="warn">error</mat-icon> {{ error }}
+        </div>
 
-  <button mat-raised-button color="primary" (click)="login()">
-    Iniciar sesión
-  </button>
-</mat-card>
+        <button mat-raised-button color="primary" type="submit" class="full-width">
+          Iniciar sesión
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

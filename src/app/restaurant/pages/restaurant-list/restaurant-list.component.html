@@ -7,6 +7,10 @@
     </button>
   </div>
 
+  <mat-hint *ngIf="maxReached" class="plan-limit-msg">
+    Con el plan básico solo puedes registrar 1 restaurante.
+  </mat-hint>
+
   <ng-container *ngIf="restaurants.length === 0; else list">
     <mat-card class="mat-elevation-z3 empty-card">
       <mat-card-content>
@@ -37,6 +41,5 @@
       </mat-card>
     </div>
   </ng-template>
-
 
 </div>

@@ -1,52 +1,41 @@
-<section class="home-container">
-  <!-- Saludo -->
-  <mat-card class="welcome-card">
+<mat-card class="home-card">
+  <mat-card-header>
     <mat-card-title>
-      {{ userRole === 'diner' ? '¡Hola comensal!' : '¡Hola chef!' }}
+      Hola, {{ fullName }} 👋
     </mat-card-title>
-    <mat-card-subtitle>
-      {{ userRole === 'diner'
-      ? 'Explora restaurantes y sabores cerca de ti.'
-      : 'Consulta tus métricas y gestiona tu restaurante.' }}
-    </mat-card-subtitle>
-  </mat-card>
+    <mat-card-subtitle *ngIf="role === 'chef'">Tu cocina digital</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="role === 'diner'">Tu guía gastronómica</mat-card-subtitle>
+  </mat-card-header>
 
-  <!-- Comensal -->
-  <ng-container *ngIf="userRole === 'diner'">
-    <h2 class="section-title">Restaurantes destacados</h2>
-    <div class="card-list">
-      <mat-card>
-        <img mat-card-image src="assets/img/anticucheria.png" alt="La Anticuchería" />
-        <mat-card-title>La Anticuchería</mat-card-title>
-        <mat-card-subtitle>Comida criolla - 4.8 ★</mat-card-subtitle>
-      </mat-card>
+  <mat-card-content>
+    <div *ngIf="role === 'chef'">
+      <p>Administra tus restaurantes, edita tus platos y revisa tu reputación.</p>
 
-      <mat-card>
-        <img mat-card-image src="assets/img/ramen.jpeg" alt="Ramen House" />
-        <mat-card-title>Ramen House</mat-card-title>
-        <mat-card-subtitle>Japonesa - 4.6 ★</mat-card-subtitle>
-      </mat-card>
+      <mat-list>
+        <mat-list-item><mat-icon matListIcon>restaurant</mat-icon> Mis restaurantes</mat-list-item>
+        <mat-list-item><mat-icon matListIcon>bar_chart</mat-icon> Estadísticas (próximamente)</mat-list-item>
+        <mat-list-item><mat-icon matListIcon>star</mat-icon> Plan actual: <strong> {{plan}}</strong></mat-list-item>
+      </mat-list>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/chef/restaurants">Gestionar restaurantes</button>
+        <button mat-button color="accent" routerLink="/chef/profile">Mi perfil</button>
+      </mat-card-actions>
     </div>
-  </ng-container>
 
-  <!-- Restaurante -->
-  <ng-container *ngIf="userRole === 'chef'">
-    <h2 class="section-title">Resumen del restaurante</h2>
-    <div class="card-list">
-      <mat-card>
-        <mat-card-title>Órdenes esta semana</mat-card-title>
-        <mat-card-content><strong>58</strong> registradas</mat-card-content>
-      </mat-card>
+    <div *ngIf="role === 'diner'">
+      <p>Explora los mejores restaurantes y saborea nuevas experiencias.</p>
 
-      <mat-card>
-        <mat-card-title>Calificación promedio</mat-card-title>
-        <mat-card-content><strong>4.7 ★</strong></mat-card-content>
-      </mat-card>
+      <mat-list>
+        <mat-list-item><mat-icon matListIcon>explore</mat-icon> Restaurantes disponibles</mat-list-item>
+        <mat-list-item><mat-icon matListIcon>favorite</mat-icon> Favoritos guardados</mat-list-item>
+        <mat-list-item><mat-icon matListIcon>account_circle</mat-icon> Mi perfil</mat-list-item>
+      </mat-list>
 
-      <mat-card>
-        <mat-card-title>Productos activos</mat-card-title>
-        <mat-card-content><strong>23</strong> platos en el menú</mat-card-content>
-      </mat-card>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/diner/restaurants">Explorar restaurantes</button>
+        <button mat-button color="accent" routerLink="/diner/favorites">Ver favoritos</button>
+      </mat-card-actions>
     </div>
-  </ng-container>
-</section>
+  </mat-card-content>
+</mat-card>

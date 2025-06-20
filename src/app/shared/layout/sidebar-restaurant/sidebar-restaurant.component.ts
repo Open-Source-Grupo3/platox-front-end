@@ -25,7 +25,7 @@ export class SidebarRestaurantComponent implements OnInit {
     this.menuItems = [
       {icon: 'home', label: 'Home', route: '/chef/home'},
       {icon: 'person', label: 'Profile', route: '/chef/profile'},
-      {icon: 'map', label: 'Map', route: '/chef/restaurant-locator'},
+      /*{icon: 'map', label: 'Map', route: '/chef/restaurant-locator'},*/
       {icon: 'restaurant', label: 'My Restaurants', route: '/chef/restaurants'},
       {icon: 'logout', label: 'Log Out', action: () => this.logout()}
     ];

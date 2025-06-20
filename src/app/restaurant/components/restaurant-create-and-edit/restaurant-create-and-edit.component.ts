@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Restaurant } from '../../model/restaurant.entity';
 import { RestaurantService } from '../../services/restaurant.service';
@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {NgIf} from '@angular/common';
+import {UserService} from '../../../profile/services/user.service';
 
 /**
  * Component for creating or editing a Restaurant entity.
@@ -30,7 +31,7 @@ import {NgIf} from '@angular/common';
     NgIf
   ]
 })
-export class RestaurantCreateAndEditComponent extends BaseFormComponent {
+export class RestaurantCreateAndEditComponent extends BaseFormComponent implements OnInit{
   @Input() restaurant!: Restaurant;
   @Input() editMode: boolean = false;
 
@@ -39,7 +40,7 @@ export class RestaurantCreateAndEditComponent extends BaseFormComponent {
   @Output() cancelRequested = new EventEmitter<void>();
   @ViewChild('restaurantForm', { static: false }) protected restaurantForm!: NgForm;
 
-  constructor(private route: ActivatedRoute, private restaurantService: RestaurantService, private router: Router) {
+  constructor(private userService: UserService, private route: ActivatedRoute, private restaurantService: RestaurantService, private router: Router) {
     super();
     this.restaurant = new Restaurant({});
   }
@@ -66,7 +67,7 @@ export class RestaurantCreateAndEditComponent extends BaseFormComponent {
         this.router.navigate(['/chef/restaurants']);
       });
     } else {
-      this.restaurant.ownerId = 1;
+      this.restaurant.ownerId = this.userService.getUserId();
       this.restaurant.dishes = [];
       this.restaurantService.create(this.restaurant).subscribe(() => {
         this.router.navigate(['/chef/restaurants']);
@@ -103,6 +104,22 @@ export class RestaurantCreateAndEditComponent extends BaseFormComponent {
       // Create mode
       this.editMode = false;
       this.restaurant = new Restaurant({});
+
+      const user = this.userService.getCurrentUser();
+      const userId = user?.id;
+      const plan = user?.plan;
+
+      if (userId && plan === 'basic') {
+        this.restaurantService.getAll().subscribe((rests) => {
+          const count = rests.filter(r => r.ownerId === userId).length;
+          console.log('Restaurantes actuales del usuario:', count);
+
+          if (count >= 1) {
+            alert('Con el plan básico solo puedes registrar un restaurante.');
+            this.router.navigate(['/chef/restaurants']);
+          }
+        });
+      }
     }
   }
 }

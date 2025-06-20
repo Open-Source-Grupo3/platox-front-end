@@ -17,7 +17,24 @@
   ],
   "restaurants": [
     {
-      "id": 1,
+      "id": 3,
+      "ownerId": 2,
+      "name": "Adriana",
+      "description": "Diestra",
+      "address": "Diestra's house",
+      "foodType": "Italiana",
+      "dishes": [
+        {
+          "id": 1750221545665,
+          "name": "wasa",
+          "price": 21,
+          "image": "https://media.istockphoto.com/id/2154317850/es/foto/buffet-table-full-of-lunch-assorted-dishes-peru-peruvian-food.jpg?s=612x612&w=0&k=20&c=BCXedM-B0p-k-xt0wsiSstTACX28w3cUWxeyEp1AZpI=",
+          "available": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": 5,
       "ownerId": 1,
       "name": "Sazón Peruana",
       "description": "Comida criolla con sabor casero.",
@@ -25,28 +42,11 @@
       "foodType": "Criollo",
       "dishes": [
         {
-          "id": 1,
-          "name": "Ají de Gallina",
+          "id": 1750260836306,
+          "name": "Aji de Gallina",
           "price": 20,
-          "image": "https://bing.com/th?id=OSK.bb17b9682faad3d8e133ae83ab01fbd6",
+          "image": "https://th.bing.com/th/id/OSK.bb17b9682faad3d8e133ae83ab01fbd6?w=220&h=146&rs=2&qlt=80&o=6&cdv=1&pid=16.1",
           "available": "available"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "ownerId": 1,
-      "name": "Kenzo",
-      "description": "Chicharroneria",
-      "address": "Jr. Avenida 123",
-      "foodType": "Criollo",
-      "dishes": [
-        {
-          "id": 1750126063370,
-          "name": "chaufa",
-          "price": 23,
-          "image": "https://media.istockphoto.com/id/2154317850/es/foto/buffet-table-full-of-lunch-assorted-dishes-peru-peruvian-food.jpg?s=612x612&w=0&k=20&c=BCXedM-B0p-k-xt0wsiSstTACX28w3cUWxeyEp1AZpI=",
-          "available": "unavailable"
         }
       ]
     }
@@ -54,10 +54,37 @@
   "users": [
     {
       "id": 1,
-      "fullName": "Gonzalo Carhuancote",
-      "email": "gonzalo@platox.com",
+      "username": "chef1",
+      "password": "1234",
       "role": "chef",
-      "restaurant": "Sazón Peruana"
+      "plan": "premium",
+      "fullName": "Gonzalo Carhuancote",
+      "email": "gonzalo@platox.com"
+    },
+    {
+      "id": 2,
+      "username": "chef2",
+      "password": "5678",
+      "role": "chef",
+      "plan": "premium"
+    },
+    {
+      "id": 3,
+      "username": "diner1",
+      "password": "5678",
+      "role": "diner"
+    }
+  ],
+  "favorites": [
+    {
+      "userId": 1,
+      "restaurantId": 3,
+      "id": 1
+    },
+    {
+      "userId": 3,
+      "restaurantId": 3,
+      "id": 2
     }
   ]
 }

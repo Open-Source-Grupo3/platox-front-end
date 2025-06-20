@@ -22,7 +22,7 @@ export class SidebarDinerComponent {
     {label: 'Home', icon: 'home', route: '/diner/home'},
     {label: 'Favorites', icon: 'favorite', route: '/diner/favorites'},
     {label: 'Profile', icon: 'person', route: '/diner/profile'},
-    {label: 'Map', icon: 'map', route: '/diner/map'},
+    /*{label: 'Map', icon: 'map', route: '/diner/map'},*/
     {
       label: 'Logout',
       icon: 'logout',

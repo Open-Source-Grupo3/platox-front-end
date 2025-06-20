@@ -24,10 +24,10 @@ export class AppLayoutComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Detectar el path actual
+    // Detects the actual path
     this.updateRoleFromPath(this.router.url);
 
-    // Escuchar cambios de navegación
+    // Listen to navigation changes
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {

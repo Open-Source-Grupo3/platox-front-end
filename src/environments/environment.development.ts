@@ -1,6 +1,6 @@
 export const environment = {
   production:false,
-  serverBaseUrl:'http://localhost:3000/api/v1',
-  postsEndpointPath: '/posts',
-  usersEndpointPath: '/users'
+  serverBaseUrl:'https://platox-api.vercel.app/api',
+  usersEndpointPath: '/users',
+  restaurantsEndpointPath: '/restaurants'
 };

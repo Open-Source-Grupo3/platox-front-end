@@ -1,51 +1,35 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "1",
-      "description": "1",
-      "image": "https://estoyhechouncocinillas.com/wp-content/uploads/2023/03/paella-de-marisco.jpg",
-      "status": "Disponible"
-    },
-    {
-      "id": 2,
-      "title": "3",
-      "description": "3",
-      "image": "https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg",
-      "status": "Disponible"
-    }
-  ],
   "restaurants": [
     {
-      "id": 3,
+      "id": 2,
       "ownerId": 2,
-      "name": "Adriana",
-      "description": "Diestra",
-      "address": "Diestra's house",
-      "foodType": "Italiana",
+      "name": "MarMuelle ",
+      "description": "Restaurante Marino con vista a la playa",
+      "address": "Jr. Costa 456",
+      "foodType": "Marino",
       "dishes": [
         {
           "id": 1750221545665,
-          "name": "wasa",
-          "price": 21,
-          "image": "https://media.istockphoto.com/id/2154317850/es/foto/buffet-table-full-of-lunch-assorted-dishes-peru-peruvian-food.jpg?s=612x612&w=0&k=20&c=BCXedM-B0p-k-xt0wsiSstTACX28w3cUWxeyEp1AZpI=",
+          "name": "Ceviche",
+          "price": 19,
+          "image": "https://tse1.mm.bing.net/th/id/OIP.DX8CXkVq04UnpYeSBXOuxQHaFW?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
           "available": "unavailable"
         }
       ]
     },
     {
-      "id": 5,
+      "id": 1,
       "ownerId": 1,
-      "name": "Sazón Peruana",
-      "description": "Comida criolla con sabor casero.",
-      "address": "Av. Los Patriotas 123, San Miguel",
-      "foodType": "Criollo",
+      "name": "La Pastinini ",
+      "description": "Restaurante fino especializado en pastas",
+      "address": "Calle Roma 275",
+      "foodType": "Italiana",
       "dishes": [
         {
-          "id": 1750260836306,
-          "name": "Aji de Gallina",
-          "price": 20,
-          "image": "https://th.bing.com/th/id/OSK.bb17b9682faad3d8e133ae83ab01fbd6?w=220&h=146&rs=2&qlt=80&o=6&cdv=1&pid=16.1",
+          "id": 1756691403241,
+          "name": "Pasta Pesto",
+          "price": 25,
+          "image": "https://tse1.mm.bing.net/th/id/OIP.d7aAkwnYXnqbc9-VHj7isQHaE6?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
           "available": "available"
         }
       ]
@@ -57,7 +41,7 @@
       "username": "chef1",
       "password": "1234",
       "role": "chef",
-      "plan": "premium",
+      "plan": "basic",
       "fullName": "Gonzalo Carhuancote",
       "email": "gonzalo@platox.com"
     },
@@ -66,25 +50,24 @@
       "username": "chef2",
       "password": "5678",
       "role": "chef",
-      "plan": "premium"
+      "plan": "premium",
+      "fullName": "Alonso",
+      "email": "alonso77@hotmail.com"
     },
     {
       "id": 3,
       "username": "diner1",
       "password": "5678",
-      "role": "diner"
+      "role": "diner",
+      "fullName": "Fabricio",
+      "email": "fabricioMCD@gmail.com"
     }
   ],
   "favorites": [
     {
-      "userId": 1,
-      "restaurantId": 3,
-      "id": 1
-    },
-    {
       "userId": 3,
-      "restaurantId": 3,
-      "id": 2
+      "restaurantId": 2,
+      "id": 1
     }
   ]
 }
